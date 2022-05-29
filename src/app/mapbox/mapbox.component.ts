@@ -179,6 +179,7 @@ export class MapboxComponent implements AfterViewInit {
   // }
  showSafe(){
   this.currentMarkers.forEach(marker => marker.remove());
+  this.getUsersLocation();
   this.safeResultsToPrintOnMap =  this.filteredResultsToPrintOnMap.filter(el =>
      el.type === "safe");
      console.log(this.filteredResultsToPrintOnMap)
@@ -190,6 +191,7 @@ export class MapboxComponent implements AfterViewInit {
 
  showDanger(){
   this.currentMarkers.forEach(marker => marker.remove());
+  this.getUsersLocation();
   this.dangerResultsToPrintOnMap =  this.filteredResultsToPrintOnMap.filter(el =>
      el.type === "danger");
      console.log(this.filteredResultsToPrintOnMap)
@@ -201,6 +203,7 @@ export class MapboxComponent implements AfterViewInit {
 
  showHelp(){
   this.currentMarkers.forEach(marker => marker.remove());
+  this.getUsersLocation();
   this.helpResultsToPrintOnMap =  this.filteredResultsToPrintOnMap.filter(el =>
      el.type === "help");
      console.log(this.filteredResultsToPrintOnMap)
