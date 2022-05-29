@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild, ElementRef, Input, ViewChildren, Q
 import Mapboxgl, { LngLatBounds, NavigationControl, GeolocateControl, Map, Popup, Marker} from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { LocationModel } from 'src/models/location.model';
-import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+
 
 @Component({
   selector: 'app-mapbox',
