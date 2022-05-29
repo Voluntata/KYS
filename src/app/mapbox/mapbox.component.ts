@@ -1,7 +1,8 @@
 import { AfterViewInit, Component, ViewChild, ElementRef, Input, ViewChildren, QueryList, Renderer2 } from '@angular/core';
 import Mapboxgl, { LngLatBounds, NavigationControl, GeolocateControl, Map, Popup, Marker} from "mapbox-gl"
 import { environment } from 'src/environments/environment';
-import { MapBoxModel } from './mapboxinterface';
+import { LocationModel } from 'src/models/location.model';
+import * as MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 @Component({
   selector: 'app-mapbox',
@@ -115,7 +116,7 @@ export class MapboxComponent implements AfterViewInit {
   private currentMarkers: Marker[] = [];
   element: any;
 
-  private MAPBOX_INIT_LOCATION: MapBoxModel = {
+  private MAPBOX_INIT_LOCATION: LocationModel = {
     name: "IT Academy",
     type: "danger",
     activity: "bar",
@@ -124,7 +125,6 @@ export class MapboxComponent implements AfterViewInit {
         street_name: "Calle",
         street_number: "117",
         zip_code: "08018",
-        district_id: "04",
         town: "BARCELONA",
         location: {
           x: 2.194060007737955,
@@ -241,7 +241,7 @@ export class MapboxComponent implements AfterViewInit {
   }
 
   // Function to create a single marker (with the marker's colour and the business (or user's coords) as parameters)
-  createANewMarker(markerColor: string, business?: MapBoxModel, coord?: GeolocationCoordinates): void {
+  createANewMarker(markerColor: string, business?: LocationModel, coord?: GeolocationCoordinates): void {
 
     // Create a popup with the business's basic information
     const popup = new Popup().setHTML(

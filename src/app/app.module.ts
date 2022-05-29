@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertFormComponent } from './alert-form/alert-form.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MapboxComponent,
     HomeComponent,
     HeaderComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    AlertFormComponent
   ],
   imports: [
     BrowserModule,

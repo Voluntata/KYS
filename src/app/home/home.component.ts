@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MapBoxModel } from '../mapbox/mapboxinterface';
+import { LocationModel } from 'src/models/location.model';
 
 @Component({
   selector: 'app-home',

@@ -1,0 +1,59 @@
+<!-- <div class="container">
+  <div [hidden]="submitted">
+    <h1>Alert Form</h1>
+    <form (ngSubmit)="onSubmit()" #alertForm="ngForm">
+
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="location.name" name="name"
+               #name="ngModel">
+        <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger">
+          Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="activity">Tipo de actividad</label>
+        <input type="text" class="form-control" id="activity"
+               [(ngModel)]="location.activity" name="activity">
+      </div>
+
+      <div class="form-group">
+        <label for="radio">Radio de la zona</label>
+        <input type="number" class="form-control" id="radio"
+               [(ngModel)]="location.radio" name="radio">
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="color">Tipo de zona</label>
+        <select class="form-control" id="color"
+                required
+                [(ngModel)]="location.color" name="power"
+                #power="ngModel">
+          <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+        </select>
+        <div [hidden]="color.valid || color.pristine" class="alert alert-danger">
+          Tipo es obligatorio
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Radio de la zona</label>
+        <textarea type="text" class="form-control" id="description"
+               [(ngModel)]="location.description" name="description">
+      </div> -->
+
+      <!-- <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="newMap(); heroForm.reset()">New Hero</button> -->
+
+      <!-- <div class="form-group">
+        <button class="btn btn-danger btn-block">Submit</button>
+    </div>
+    </form>
+  </div>
+  </div> -->
