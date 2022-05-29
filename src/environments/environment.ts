@@ -8,11 +8,14 @@ export const environment = {
   MAPBOX_ZOOM: 8,
   MAPBOX_STYLE: 'mapbox://styles/mapbox/streets-v11',
   BACKEND_BASE_URL: '',
-  DATE_TO_PRINT_ON_MAP: 'assets/Ponits_collection.json',
-  GREEN_DATA:'',
-  YELLOW_DATA: '',
-  RED_DATA: '',
-  PURPLE_DATA:'',
+  DATE_TO_PRINT_ON_MAP: 'http://localhost:8080/points',
+  GREEN_DATA:'http://localhost:8080/pointColor/green',
+  YELLOW_DATA: 'http://localhost:8080/pointColor/yellow',
+  RED_DATA: 'http://localhost:8080/pointColor/red',
+  PURPLE_DATA:'http://localhost:8080/pointColor/purple',
+  USER_DATA: 'http://localhost:8080/user'
+
+
 
 };
 

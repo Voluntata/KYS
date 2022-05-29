@@ -12,7 +12,6 @@
       <div class="form-group m-0">
         <label for="name">Nombre</label>
         <input type="text" class="form-control " id="name"
-               required
                [(ngModel)]="location.name" name="name"
                #name="ngModel">
         </div>
@@ -30,13 +29,23 @@
                [(ngModel)]="location.radio" name="radio">
       </div>
 
+      <div class="form-group" >
+        <label for="address">Direccion</label>
+        <input
+        required type="text" class="form-control" id="address"
+               [(ngModel)]="location.address" name="address">
+      </div>
+
+
+
+
       <div class="form-group">
         <label for="color">Tipo de zona</label>
         <select class="form-control" id="color"
                 required
                 [(ngModel)]="location.color" name="power"
                 #power="ngModel">
-          <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+          <option *ngFor="let c of colors" [value]="c">{{c}}</option>
         </select>
       </div>
 

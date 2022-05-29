@@ -41,7 +41,7 @@ public  id?: number;
        idAddress?: number;
        street: string;
        number: number;
-      cp: number;
+      cp?: number;
       city: string;
   };
   public color!: string;

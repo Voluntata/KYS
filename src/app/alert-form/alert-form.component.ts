@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LocationModel } from 'src/models/location.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-alert-form',
@@ -9,19 +10,21 @@ import { LocationModel } from 'src/models/location.model';
 })
 export class AlertFormComponent implements OnInit {
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal, public http: HttpClient) { }
 
   ngOnInit(): void {
   }
   location = new LocationModel()
 
   colors: string[] = [
-    "red",
-    "green"
+    "Seguro",
+    "Peligroso"
   ]
 
   onSubmit(alertForm:any){
-    console.log(alertForm.value)
+    console.log(alertForm.value);
+    this.http.put('http://localhost:8080/points', alertForm.value).subscribe(res => (console.log(res))
+    )
   }
 
   closeModal() {

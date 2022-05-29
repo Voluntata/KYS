@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { LoginModalService } from './login-modal.service';
 import { User } from './user';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-form',
@@ -19,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   users: User[] = [];
   isUserRegist: boolean = false;
 
-  constructor(public activeModal: NgbActiveModal, public router: Router, public loginService: LoginModalService) { }
+  constructor(public http:HttpClient, public activeModal: NgbActiveModal, public router: Router, public loginService: LoginModalService) { }
 
 
   ngOnInit(): void {
@@ -41,44 +43,47 @@ export class LoginFormComponent implements OnInit {
     this.user.email = form.value.email;
     this.user.password = form.value.password;
 
+    this.http.put(`${environment.USER_DATA}`, form.value).subscribe(res => (console.log(res)))
+
+
 
     //comprobar si el usuario esta en Localstorage (se mudo al servicio)
 
-    if (localStorage. getItem("users") === null) {
-      localStorage.setItem("users", JSON.stringify(this.users));}
-      else{
+    // if (localStorage. getItem("users") === null) {
+    //   localStorage.setItem("users", JSON.stringify(this.users));}
+    //   else{
 
-    this.isUserRegist = this.loginService.isRegistered(this.user);
-    console.log(this.isUserRegist)}
+//     this.isUserRegist = this.loginService.isRegistered(this.user);
+//     console.log(this.isUserRegist)}
 
-    if (this.isLoginMode) {
-// si es el modo de Login, comprobar si el usuario esta registardo
-      if (this.isUserRegist) {
-        console.log('User is logged');
-        this.activeModal.close();
-        this.router.navigate(['starships/'])
-      }
-      else {
-        console.log('Faile to login')
-      }
+//     if (this.isLoginMode) {
+// // si es el modo de Login, comprobar si el usuario esta registardo
+//       if (this.isUserRegist) {
+//         console.log('User is logged');
+//         this.activeModal.close();
+//         this.router.navigate(['home'])
+//       }
+//       else {
+//         console.log('Faile to login')
+//       }
 
 
-// si es modo de registrarse, comprobar si esta registrado, si no - guardar en local storage
-    } else {
-    //  console.log(this.user);
-      this.users = JSON.parse(localStorage.getItem('users') || '');
-     // console.log(this.users);
-      if (this.isUserRegist) {
-        console.log('User is already registered');
-        this.isLoginMode = true
-      }
-      else {
-        this.users.push(this.user);
-        this.isLoginMode = true
+// // si es modo de registrarse, comprobar si esta registrado, si no - guardar en local storage
+//     } else {
+//     //  console.log(this.user);
+//       this.users = JSON.parse(localStorage.getItem('users') || '');
+//      // console.log(this.users);
+//       if (this.isUserRegist) {
+//         console.log('User is already registered');
+//         this.isLoginMode = true
+//       }
+//       else {
+//         this.users.push(this.user);
+//         this.isLoginMode = true
 
-      }
-      localStorage.setItem("users", JSON.stringify(this.users));
-    }
+//       }
+//       localStorage.setItem("users", JSON.stringify(this.users));
+//     }
 
   }
 }

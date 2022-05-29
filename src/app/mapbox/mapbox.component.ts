@@ -18,102 +18,7 @@ export class MapboxComponent implements AfterViewInit {
   mapDivElement!: ElementRef;
 
   @ViewChildren('mapboxgl-marker') markers!: QueryList<any>;
-  safeResultsToPrintOnMap: any[] = [];
-  dangerResultsToPrintOnMap: any[] = [];
-  helpResultsToPrintOnMap: any[] = [];
-  friendResultsToPrintOnMap: any[] = []
-  //@Input() filteredResultsToPrintOnMap!: MapBoxModel[];
-  // filteredResultsToPrintOnMap = [
-  //   {
-  //     name: "IT Academy",
-  //     type: "danger",
-  //     activity: "bar",
-  //     address: [
-  //       {
-  //         street_name: "Roc Boronat",
-  //         street_number: "117-127",
-  //         zip_code: "08018",
-  //         district_id: "04",
-  //         town: "BARCELONA",
-  //         location: {
-  //           x: 2.19,
-  //           y: 41.40,
-  //         },
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Other Name",
-  //     type: "safe",
-  //     activity: "bar",
-  //     address: [
-  //       {
-  //         street_name: "Roc Boronat",
-  //         street_number: "117-127",
-  //         zip_code: "08018",
-  //         district_id: "04",
-  //         town: "BARCELONA",
-  //         location: {
-  //           x: 2.1,
-  //           y: 41.5,
-  //         },
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Bershka",
-  //     type: "safe",
-  //     activity: "Tienda",
-  //     address: [
-  //       {
-  //         street_name: "Roc Boronat",
-  //         street_number: "117-127",
-  //         zip_code: "08018",
-  //         district_id: "04",
-  //         town: "BARCELONA",
-  //         location: {
-  //           x: 2.2,
-  //           y: 41.56,
-  //         },
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Amigo",
-  //     type: "amigo",
-  //     address: [
-  //       {
-  //         street_name: "Roc Boronat",
-  //         street_number: "117-127",
-  //         zip_code: "08018",
-  //         district_id: "04",
-  //         town: "BARCELONA",
-  //         location: {
-  //           x: 2.3,
-  //           y: 41.6,
-  //         },
-  //       },
-  //     ],
-  //   },
-  //   {
-  //     name: "Amigo",
-  //     type: "help",
-  //     address: [
-  //       {
-  //         street_name: "Roc Boronat",
-  //         street_number: "117-127",
-  //         zip_code: "08018",
-  //         district_id: "04",
-  //         town: "BARCELONA",
-  //         location: {
-  //           x: 2.32,
-  //           y: 41.6,
-  //         },
-  //       },
-  //     ],
-  //   }
 
-  // ]
   private map!: Map;
   private currentMarkers: Marker[] = [];
   element: any;
@@ -148,26 +53,32 @@ export class MapboxComponent implements AfterViewInit {
     this.generateMap();
     // Depending on if the user accepts to share their location, center the map into the user, or into the default location (IT Academy)
     this.getUsersLocation();
-    this.service.getAlldata().subscribe(responce =>
-      { responce.forEach(element => {
-             if (element.color === "GREEN") {
-        this.createANewMarker("green", element);
-      }
-      if (element.color === "RED") {
-        this.createANewMarker("red", element);
-      }
-      if (element.color === "YELLOW") {
-        this.createANewMarker("yellow", element);
-      }
-      if (element.color === "PURPLE") {
-        this.createANewMarker("purple", element);
-      }
-
-      });
-});
-
+    this.showAll();
   }
 
+ showAll(){
+  this.currentMarkers.forEach(marker => marker.remove());
+  this.service.getAlldata().subscribe(responce =>
+    { responce.forEach(element => {
+           if (element.color === "GREEN") {
+      this.createANewMarker("green", element);
+    }
+    if (element.color === "RED") {
+      this.createANewMarker("red", element);
+    }
+    if (element.color === "YELLOW") {
+      this.createANewMarker("yellow", element);
+    }
+    if (element.color === "PURPLE") {
+      this.createANewMarker("purple", element);
+    }
+
+    });
+    console.log(responce)
+});
+
+
+ }
 
  showSafe(){
    this.currentMarkers.forEach(marker => marker.remove());

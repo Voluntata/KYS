@@ -1,7 +1,10 @@
+.map-container{
+  height: 100vh;
 
+}
 .map-container {
   width: auto;
-  height: 100vh;
+  height: 79vh;
 }
 .mapboxgl-marker{
   display: block;

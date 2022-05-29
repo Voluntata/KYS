@@ -1,3 +1,4 @@
+<div class="main-container">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"><img src="assets/logo.png" alt="" width="100px" height="100px"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -25,7 +26,7 @@
               height="16" fill="purple" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill= />
             </svg> Puntos de ayuda</button>
-          <button class="dropdown-item" (click)="safe.showFriends"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"
+          <button class="dropdown-item" (click)="safe.showFriends()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"
               class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg> Amigos</button>
@@ -54,3 +55,4 @@
   </div>
 </nav>
 <app-mapbox #safe></app-mapbox>
+</div>
