@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild, ElementRef, Input, ViewChildren, QueryList, Renderer2 } from '@angular/core';
-import Mapboxgl, { LngLatBounds, NavigationControl, GeolocateControl, Map, Popup, Marker } from "mapbox-gl"
+import Mapboxgl, { LngLatBounds, NavigationControl, GeolocateControl, Map, Popup, Marker} from "mapbox-gl"
 import { environment } from 'src/environments/environment';
 import { MapBoxModel } from './mapboxinterface';
 
@@ -237,6 +237,7 @@ export class MapboxComponent implements AfterViewInit {
         trackUserLocation: true,
       })
     );
+
   }
 
   // Function to create a single marker (with the marker's colour and the business (or user's coords) as parameters)
