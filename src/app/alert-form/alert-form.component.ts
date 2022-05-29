@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { LocationModel } from 'src/models/location.model';
 
 @Component({
   selector: 'app-alert-form',
@@ -7,11 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
-  location = new Location()
+  location = new LocationModel()
 
   colors: string[] = [
     "red",
@@ -20,5 +22,9 @@ export class AlertFormComponent implements OnInit {
 
   onSubmit(alertForm:any){
     console.log(alertForm.value)
+  }
+
+  closeModal() {
+    this.activeModal.close();
   }
 }

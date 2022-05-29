@@ -1,42 +1,52 @@
 
 
 
-export interface LocationModel {
-  name?: string;
-  type?: string; //color
-  activity?: string;
-  address: Address[];
-  radio?: number;
-  description?: string;
+// export class LocationModel {
+//  public name?: string;
+//  public  type?: string; //color
+//  public activity?: string;
+//  public address!: Address[];
+//  public radio?: number;
+//  public description?: string;
 
-  // constructor(LocationModel:any){
-  //  this.name = LocationModel && LocationModel.name || null;
-  //  this.type = LocationModel && LocationModel.type || null;
-  //  this.activity = LocationModel && LocationModel.activity || null;
-  //  this.address = LocationModel && LocationModel.address || null;
-  //  this.radio = LocationModel && LocationModel.radio || null;
-  //  this.description = LocationModel && LocationModel.description || null;
-  // }
 
-}
 
-interface Address {
-  street_name: string;
-  street_number?: string | number;
-  zip_code?: string;
-  town?: string;
-  location: {
-      x: number;
-      y: number;
-  }
-
-// constructor(address?:any){
-//   this.street_name = address && address.street_name || null;
-//   this.street_number = address && address.street_number || null;
-//   this.zip_code = address && address.zip_code || null;
-//   this.town = address && address.town || null;
-//   this.location = address && address.location || null;
 
 // }
 
+// class Address {
+//  public street_name!: string;
+//  public street_number?: string | number;
+//  public zip_code?: string;
+//  public town?: string;
+//  public location!: {
+//     x: number;
+//     y: number;
+//   };
+
+
+// }
+
+export class LocationModel{
+public  id?: number;
+  public location!: {
+    id_location?: number;
+    x: number;
+    y: number;
+  };
+  public activity!: string;
+  public radio?: number;
+  public name?: string;
+  public address!: {
+       idAddress?: number;
+       street: string;
+       number: number;
+      cp: number;
+      city: string;
+  };
+  public color!: string;
+  public verified?: boolean
+  public why?: string
 }
+
+

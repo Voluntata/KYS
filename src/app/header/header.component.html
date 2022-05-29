@@ -25,10 +25,10 @@
               height="16" fill="purple" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill= />
             </svg> Puntos de ayuda</button>
-          <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"
+          <button class="dropdown-item" (click)="safe.showFriends"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"
               class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
               <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-            </svg> Amigos</a>
+            </svg> Amigos</button>
 
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Mostrar todo</a>
@@ -38,7 +38,7 @@
         <a class="nav-link" href="assets/Folleto.pdf" target="_blank">Recomendaciones</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" target="_blank">Avisar</a>
+        <button class="nav-link login-button" (click)="openAlertForm()">Avisar</button>
       </li>
       <li> <button class="nav-link login-button" (click)="openLoginModal()">Log In <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
